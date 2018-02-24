@@ -76,9 +76,8 @@
                                     <action selector="spin:" destination="gRi-Nb-O1x" eventType="touchUpInside" id="3wj-Ix-Lo7"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPj-w7-JLm">
-                                <rect key="frame" x="139" y="274" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPj-w7-JLm">
+                                <rect key="frame" x="139.5" y="274" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -89,19 +88,22 @@
                             <constraint firstItem="FOz-lW-Vyy" firstAttribute="top" secondItem="iGz-kZ-1Ql" secondAttribute="top" id="5XF-O9-X0f"/>
                             <constraint firstItem="SeZ-qz-8e4" firstAttribute="centerX" secondItem="iGz-kZ-1Ql" secondAttribute="centerX" id="NZx-kx-9iF"/>
                             <constraint firstItem="FOz-lW-Vyy" firstAttribute="centerX" secondItem="ELd-r1-4Hf" secondAttribute="centerX" id="XAx-JF-dVJ"/>
+                            <constraint firstItem="DPj-w7-JLm" firstAttribute="centerY" secondItem="ELd-r1-4Hf" secondAttribute="centerY" id="nOA-0E-uff"/>
+                            <constraint firstItem="DPj-w7-JLm" firstAttribute="centerX" secondItem="ELd-r1-4Hf" secondAttribute="centerX" id="zcr-6M-Czl"/>
                             <constraint firstItem="iGz-kZ-1Ql" firstAttribute="bottom" secondItem="SeZ-qz-8e4" secondAttribute="bottom" constant="28" id="zev-VK-7Ow"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iGz-kZ-1Ql"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Custom" image="toolicon" id="Xvg-hW-5CF"/>
                     <connections>
+                        <outlet property="button" destination="SeZ-qz-8e4" id="5TH-RU-wv0"/>
                         <outlet property="picker" destination="FOz-lW-Vyy" id="PLY-Nn-pYm"/>
                         <outlet property="winLabel" destination="DPj-w7-JLm" id="7b4-CY-3FY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSm-AI-sm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1009" y="931"/>
+            <point key="canvasLocation" x="-1010.625" y="930.63380281690138"/>
         </scene>
         <!--Depended Item-->
         <scene sceneID="gpt-6a-1yf">

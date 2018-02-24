@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class CustomPickerViewController: UIViewController,
     UIPickerViewDelegate, UIPickerViewDataSource {
@@ -14,6 +15,10 @@ class CustomPickerViewController: UIViewController,
     private var images:[UIImage]!
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var button: UIButton!
+    
+    private var winSoundID: SystemSoundID = 0
+    private var crunchSoundID: SystemSoundID = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +63,23 @@ class CustomPickerViewController: UIViewController,
             }
         }
         
-        winLabel.text = win ? "Winner!":" "
+        if crunchSoundID == 0 {
+            let soundURL = Bundle.main.url(forResource:"crunch", withExtension: "wav")! as CFURL
+            AudioServicesCreateSystemSoundID(soundURL, &crunchSoundID)
+        }
+        AudioServicesPlaySystemSound(crunchSoundID)
+        if win {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.playWinSound()
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.showButton()
+            }
+        }
+        
+        button.isHidden = true
+        winLabel.text = " "
         
     }
     
@@ -77,4 +98,19 @@ class CustomPickerViewController: UIViewController,
         return imageView
     }
 
+    func showButton() {
+        button.isHidden = false
+    }
+    
+    func playWinSound() {
+        if winSoundID == 0 {
+            let soundURL = Bundle.main.url(forResource: "win", withExtension: "wav")! as CFURL
+            AudioServicesCreateSystemSoundID(soundURL, &winSoundID)
+        }
+        AudioServicesPlaySystemSound(winSoundID)
+        winLabel.text = "Winner!"
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.showButton()
+        }
+    }
 }
